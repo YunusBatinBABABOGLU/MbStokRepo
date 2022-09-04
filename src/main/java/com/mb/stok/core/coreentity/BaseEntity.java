@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@EnableJpaAuditing
 public abstract class BaseEntity implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -49,15 +50,15 @@ public abstract class BaseEntity implements Serializable{
 	private Instant lastModifiedDate = Instant.now();
 
 	@Column(name = "deleted")
-	private String deleted = "NA";
+	private Boolean deleted ;
 
 
 
-	public String getDeleted() {
+	public Boolean getDeleted() {
 		return deleted;
 	}
 
-	public void setDeleted(String deleted) {
+	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
 

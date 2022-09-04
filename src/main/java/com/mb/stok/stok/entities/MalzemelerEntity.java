@@ -29,10 +29,6 @@ public class MalzemelerEntity extends BaseEntity{
 	@Column(name = "malzemeadi", nullable = true,  updatable = true)
 	private String malzemeAdi;
 	
-	@Column(name = "malzemeadet", nullable = true,  updatable = true)
-	private Double malzemeAdet;
-	
-	private Instant malzemeSonKullanimTarihi;
 
 	
 	public String getMalzemeAdi() {
@@ -51,21 +47,7 @@ public class MalzemelerEntity extends BaseEntity{
 		this.id = id;
 	}
 
-	public Double getMalzemeAdet() {
-		return malzemeAdet;
-	}
 
-	public void setMalzemeAdet(Double malzemeAdet) {
-		this.malzemeAdet = malzemeAdet;
-	}
-
-	public Instant getMalzemeSonKullanimTarihi() {
-		return malzemeSonKullanimTarihi;
-	}
-
-	public void setMalzemeSonKullanimTarihi(Instant malzemeSonKullanimTarihi) {
-		this.malzemeSonKullanimTarihi = malzemeSonKullanimTarihi;
-	}
 	
 	
 
