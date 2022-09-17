@@ -1,7 +1,6 @@
 package com.mb.stok.stok.entities;
 
-
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import javax.persistence.*;
@@ -12,25 +11,23 @@ import javax.persistence.*;
 import com.mb.stok.core.coreentity.BaseEntity;
 
 @Entity
-@Table(name = "Malzemeler")
-public class MalzemelerEntity extends BaseEntity{
+@Table(name = "Malzeme")
+public class MalzemeEntity extends BaseEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4452101883365638465L;
-	
+
 	@Id
-	  @GeneratedValue
-	@Column(name = "id", nullable = false,  updatable = false)
+	@GeneratedValue
+	@Column(name = "id", nullable = false, updatable = false)
 	private UUID id;
 
-	
-	@Column(name = "malzemeadi", nullable = true,  updatable = true)
+	@Column(name = "malzemeadi", nullable = true, updatable = true)
 	private String malzemeAdi;
 	
 
-	
 	public String getMalzemeAdi() {
 		return malzemeAdi;
 	}
@@ -46,16 +43,5 @@ public class MalzemelerEntity extends BaseEntity{
 	public void setId(UUID id) {
 		this.id = id;
 	}
-
-
-	
-	
-
-
-
-
-	
-
-
 
 }

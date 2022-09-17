@@ -1,4 +1,4 @@
-package com.mb.stok.stok.restservices.service;
+package com.mb.stok.stok.restservices.service.malzeme;
 
 import java.util.List;
 
@@ -7,18 +7,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mb.stok.stok.entities.MalzemelerEntity;
-import com.mb.stok.stok.services.MalzemelerService;
+import com.mb.stok.stok.entities.MalzemeEntity;
+import com.mb.stok.stok.services.malzeme.MalzemeService;
 
 @Service
-public class MalzemelerRestServiceImpl implements MalzemelerRestService  {
+public class MalzemeRestServiceImpl implements MalzemeRestService  {
 	
 	@Autowired
-	private MalzemelerService malzemelerService;
+	private MalzemeService malzemelerService;
 
 	@Override
 	@Transactional
-	public Boolean malzemeKaydet(MalzemelerEntity malzeme) {
+	public Boolean malzemeKaydet(MalzemeEntity malzeme) {
 
 		//Yetki kontrolü
         //Model convert entity
@@ -31,12 +31,12 @@ public class MalzemelerRestServiceImpl implements MalzemelerRestService  {
 	}
 
 	@Override
-	public List<MalzemelerEntity> getTumMalzemeListesi() {
+	public List<MalzemeEntity> getTumMalzemeListesi() {
 	return malzemelerService.getTumMalzemeler();
 	}
 
 	@Override
-	public List<MalzemelerEntity> getTumMalzemelerByDeletedAndMalzemeAdi(Boolean deleted, String malzemeAdi) {
+	public List<MalzemeEntity> getTumMalzemelerByDeletedAndMalzemeAdi(Boolean deleted, String malzemeAdi) {
 		// TODO Auto-generated method stub
 		return malzemelerService.getTumMalzemelerByDeletedAndMalzemeAdi(deleted,malzemeAdi);
 	}

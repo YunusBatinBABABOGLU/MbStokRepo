@@ -8,11 +8,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import com.mb.stok.core.corerepository.BaseJpaRepository;
-import com.mb.stok.stok.entities.MalzemelerEntity;
+import com.mb.stok.stok.entities.MalzemeEntity;
 
 @Repository
-public interface MalzemelerRepository extends JpaRepository<MalzemelerEntity, UUID> {
+public interface MalzemeRepository extends JpaRepository<MalzemeEntity, UUID> {
 	
-	List<MalzemelerEntity> findAllByDeletedAndMalzemeAdi(Boolean deleted,String malzemeAdi);
+	List<MalzemeEntity> findAllByDeletedAndMalzemeAdi(Boolean deleted,String malzemeAdi);
 
 }

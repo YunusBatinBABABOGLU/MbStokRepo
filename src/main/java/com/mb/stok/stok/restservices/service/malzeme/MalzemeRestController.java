@@ -1,4 +1,4 @@
-package com.mb.stok.stok.restservices;
+package com.mb.stok.stok.restservices.service.malzeme;
 
 import java.util.List;
 
@@ -9,19 +9,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mb.stok.stok.entities.MalzemelerEntity;
-import com.mb.stok.stok.restservices.service.MalzemelerRestService;
-import com.mb.stok.stok.restservices.service.MalzemelerRestServiceImpl;
+import com.mb.stok.stok.entities.MalzemeEntity;
 
 @RestController
 @RequestMapping("/stok/malzemeislemleri")
-public class MalzemelerRestController {
+public class MalzemeRestController {
 
 	@Autowired
-	private MalzemelerRestService malzemelerRestService;
+	private MalzemeRestService malzemelerRestService;
 
 	@PostMapping(value = "/malzemekaydet", consumes = "application/json", produces = "application/json")
-	public void malzemeKaydet(@RequestBody MalzemelerEntity malzeme) {
+	public void malzemeKaydet(@RequestBody MalzemeEntity malzeme) {
 
 		malzeme.setCreatedBy("Murat");
 
@@ -30,7 +28,7 @@ public class MalzemelerRestController {
 	}
 
 	@PostMapping(value = "/malzemeupdate", consumes = "application/json", produces = "application/json")
-	public void malzemeUpdate(@RequestBody MalzemelerEntity malzeme) {
+	public void malzemeUpdate(@RequestBody MalzemeEntity malzeme) {
 
 		malzeme.setCreatedBy("Murat");
 
@@ -41,9 +39,9 @@ public class MalzemelerRestController {
 	@GetMapping("/getTumMalzemeler")
 	public void getTumMalzemeler() {
 
-		List<MalzemelerEntity> malzemelerList = malzemelerRestService.getTumMalzemeListesi();
+		List<MalzemeEntity> malzemelerList = malzemelerRestService.getTumMalzemeListesi();
 
-		for (MalzemelerEntity malzemelerEntity : malzemelerList) {
+		for (MalzemeEntity malzemelerEntity : malzemelerList) {
 
 			System.out.println(malzemelerEntity.getId());
 			System.out.println(malzemelerEntity.getMalzemeAdi());
@@ -57,9 +55,9 @@ public class MalzemelerRestController {
 	@GetMapping("/getMalzemelerByDeleted")
 	public void getMalzemelerByDeleted() {
 
-		List<MalzemelerEntity> malzemelerList = malzemelerRestService.getTumMalzemelerByDeletedAndMalzemeAdi(false,"kola");
+		List<MalzemeEntity> malzemelerList = malzemelerRestService.getTumMalzemelerByDeletedAndMalzemeAdi(false,"kola");
 
-		for (MalzemelerEntity malzemelerEntity : malzemelerList) {
+		for (MalzemeEntity malzemelerEntity : malzemelerList) {
 
 			System.out.println(malzemelerEntity.getId());
 			System.out.println(malzemelerEntity.getMalzemeAdi());
